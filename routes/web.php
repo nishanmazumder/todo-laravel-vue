@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TodoController;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,23 @@ Route::get('/', function () {
 });
 
 // Route::resource('todo', TodoController::class);
+
+Route::get('/config-clear', function() {
+    Artisan::call('config:clear');
+    return "Cache is cleared";
+});
+
+Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+    return "Cache is cleared";
+});
+
+Route::get('/view-clear', function() {
+    Artisan::call('view:clear');
+    return "Cache is cleared";
+});
+
+Route::get('/route-clear', function() {
+    Artisan::call('route:clear');
+    return "Cache is cleared";
+});

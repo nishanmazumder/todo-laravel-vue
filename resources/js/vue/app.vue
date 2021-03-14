@@ -52,16 +52,21 @@
                 axios.get('api/todo')
                     .then(response => {
                         this.getItems = response.data
-                        return
+                        //console.log(response.data)
+                        //return
+
                     })
                     .catch(error => {
                         console.log(error)
                     })
             }
         },
-        created: function () {
+        mounted(){
             this.getList()
         }
+        // created: function () {
+        //     this.getList()
+        // }
     }
 
 </script>

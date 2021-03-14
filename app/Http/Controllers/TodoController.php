@@ -94,13 +94,46 @@ class TodoController extends Controller
         // No need to query
         $todoItem = Todo::find($todo);
 
+        // if($request('completed') === true)
+        // {
+        //     $todoItem->completed = 1;
+        // }else{
+        //     $todoItem->completed = 0;
+        // }
+
+        // $todoItem->save();
+
+        // if($todoItem){
+        //     $todoItem->completed2 = $request->item === 0 ? 0 : 1;
+        //     $todoItem->completed_at = $request->item ? Carbon::now() : null;
+        //     $todoItem->save();
+
+        //     return $todoItem;
+        // }
+
+        // return "Item not found.";
+
+        // if($todoItem){
+        //     $todoItem->completed = $request->item['completed'] ? true : false;
+        //     $todoItem->completed_at = $request->item ? Carbon::now() : null;
+        //     $todoItem->save();
+
+        //     return $todoItem;
+        // }
+
         if($todoItem){
-            $todoItem->completed = $request->item['completed'] ? true : false;
-            $todoItem->completed_at = $request->item['completed'] ? Carbon::now() : null;
+            if($request->item['activated'] === true){
+                $todoItem->activated = 1;
+            }else{
+                $todoItem->activated = 0;
+            }
+            $todoItem->completed_at = $request->item ? Carbon::now() : null;
             $todoItem->save();
 
             return $todoItem;
         }
+
+
 
         return "Item not found.";
     }
