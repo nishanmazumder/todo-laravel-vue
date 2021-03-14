@@ -3,13 +3,6 @@
         <h1>Todo List</h1>
         <add-item v-on:itemRefresh="getList" />
         <listview :listItems="getItems" v-on:reloadList="getList" />
-
-
-        <!-- <button-test btn-text="From Parent"/> -->
-        <!-- <button-test :btn-text="mytext"/> -->
-        <!-- <button-test/> -->
-
-        <!-- <button @click="mytext='Nishan'">Press</button> -->
     </div>
 
 </template>
@@ -33,18 +26,15 @@
 <script>
     import AddItem from './additem'
     import Listview from './listview.vue'
-    import ButtonTest from './button';
 
     export default {
         components: {
             AddItem,
             Listview,
-            ButtonTest
         },
         data: function () {
             return {
                 getItems: [],
-                mytext: 'My Text'
             }
         },
         methods: {
@@ -59,7 +49,7 @@
                     })
             }
         },
-        created: function () {
+        mounted: function () {
             this.getList()
         }
     }

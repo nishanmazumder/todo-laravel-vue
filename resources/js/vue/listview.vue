@@ -10,7 +10,6 @@
 
 <style scoped>
 .listContaner{
-    background: yellow;
     margin-top: 10px;
 }
 .item{
